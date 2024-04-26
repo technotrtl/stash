@@ -1,5 +1,59 @@
-<html>
-<h1>
-BRO
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punch Clock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .clock {
+            font-size: 24px;
+            margin-top: 50px;
+        }
+        #clock-in,
+        #clock-out {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div id="current-time"></div>
+        <button id="clock-in">Clock In</button>
+        <button id="clock-out">Clock Out</button>
+    </div>
+
+    <script>
+        // Get current time and display it
+        function displayTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('current-time').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Clock in function
+        document.getElementById('clock-in').addEventListener('click', () => {
+            alert('You have clocked in.');
+        });
+
+        // Clock out function
+        document.getElementById('clock-out').addEventListener('click', () => {
+            alert('You have clocked out.');
+        });
+
+        // Update time every second
+        setInterval(displayTime, 1000);
+
+        // Display time on page load
+        displayTime();
+    </script>
+</body>
 </html>
